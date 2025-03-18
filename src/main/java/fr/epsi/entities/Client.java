@@ -1,15 +1,20 @@
 package fr.epsi.entities;
 
 import jakarta.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-class Client {
+public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
+    private String prenom;
+    private double montant;
+    private String motif;
+    private LocalDateTime date;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "adresse_id")
@@ -35,6 +40,38 @@ class Client {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public double getMontant() {
+        return montant;
+    }
+
+    public void setMontant(double montant) {
+        this.montant = montant;
+    }
+
+    public String getMotif() {
+        return motif;
+    }
+
+    public void setMotif(String motif) {
+        this.motif = motif;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
     }
 
     public Adresse getAdresse() {

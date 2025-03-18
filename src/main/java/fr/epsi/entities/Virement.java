@@ -4,6 +4,14 @@ import jakarta.persistence.*;
 
 @Entity
 @DiscriminatorValue("VIREMENT")
-class Virement extends Operation {
+public class Virement extends Operation {
     private String beneficiaire;
+
+    public String getBeneficiaire() {
+        return beneficiaire;
+    }
+
+    public void setBeneficiaire(String beneficiaire) {
+        this.beneficiaire = beneficiaire;
+    }
 }
